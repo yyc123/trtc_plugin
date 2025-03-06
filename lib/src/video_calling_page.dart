@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:tencent_trtc_cloud/trtc_cloud.dart';
 import 'package:tencent_trtc_cloud/trtc_cloud_def.dart';
@@ -10,6 +11,7 @@ import 'package:tencent_trtc_cloud/trtc_cloud_video_view.dart';
 import 'package:tencent_trtc_cloud/tx_device_manager.dart';
 import 'package:trtc_plugin/src/size_utils.dart';
 
+import 'audit_prompt_page.dart';
 import 'config.dart';
 import 'utils.dart';
 
@@ -248,8 +250,9 @@ class _VideoCallingPageState extends State<VideoCallingPage> {
       if (remoteUidSet.isEmpty) {
         //客服挂断了
         // Navigator.pop(context);
-        Navigator.pushNamedAndRemoveUntil(
-            context, 'auditPrompt', ModalRoute.withName('login'));
+        // Navigator.pushNamedAndRemoveUntil(
+        //     context, 'auditPrompt', ModalRoute.withName('login'));
+        Get.offAll(const AuditPromptPage());
       }
     }
   }
@@ -345,17 +348,24 @@ class _VideoCallingPageState extends State<VideoCallingPage> {
                         });
                       },
                       iconSize: 50,
-                      icon: Image.asset(isMuteLocalAudio
-                          ? getImgPath('b3麦克风关闭')
-                          : getImgPath('b2麦克风启用'))),
+                      icon: Image.asset(
+                        isMuteLocalAudio
+                            ? getImgPath('b3麦克风关闭')
+                            : getImgPath('b2麦克风启用'),
+                        package: packageName,
+                      )),
                   IconButton(
                       onPressed: () {
                         trtcCloud.stopLocalPreview();
-                        Navigator.pushNamedAndRemoveUntil(context,
-                            'auditPrompt', ModalRoute.withName('login'));
+                        Get.offAll(const AuditPromptPage());
+                        // Navigator.pushNamedAndRemoveUntil(context,
+                        //     'auditPrompt', ModalRoute.withName('login'));
                       },
                       iconSize: 60,
-                      icon: Image.asset(getImgPath('c1通话挂断'))),
+                      icon: Image.asset(
+                        getImgPath('c1通话挂断'),
+                        package: packageName,
+                      )),
                   IconButton(
                       onPressed: () {
                         bool newIsFrontCamera = !isFrontCamera;
@@ -367,7 +377,10 @@ class _VideoCallingPageState extends State<VideoCallingPage> {
                         });
                       },
                       iconSize: 50,
-                      icon: Image.asset(getImgPath('d1摄像头翻转'))),
+                      icon: Image.asset(
+                        getImgPath('d1摄像头翻转'),
+                        package: packageName,
+                      )),
 
                   // ElevatedButton(
                   //   style: ButtonStyle(
