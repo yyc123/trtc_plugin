@@ -27,6 +27,6 @@
 <uses-feature android:name="android.hardware.camera.autofocus" />
 ```
 ### 使用方式
-1. 前往控制台创建应用，获取AppID和secretKey
+1. 前往控制台创建应用，获取AppID和secretKey [前往官方文档](https://cloud.tencent.com/document/product/647/50488)
 2. 引入本插件,配置上述所需权限
 3. 调用api,参考`example/main.dart`
