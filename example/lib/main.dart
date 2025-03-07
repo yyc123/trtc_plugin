@@ -65,7 +65,7 @@ class _MyAppState extends State<MyApp> {
               onPressed: () async {
                 TrtcPlugin trtcPlugin = TrtcPlugin();
                 bool result = await trtcPlugin.initSDK(
-                    appID: 1234567890,
+                    appID: 1600023534,
                     sk: '7578e03a0a394a4cba7904fc1acef5f3991d5040dcd36a8b2225c92fea43a89e');
                 if (result) {
                   trtcPlugin.videoAuthEnter(
@@ -80,7 +80,7 @@ class _MyAppState extends State<MyApp> {
               onPressed: () async {
                 TrtcPlugin trtcPlugin = TrtcPlugin();
                 bool result = await trtcPlugin.initSDK(
-                    appID: 1234567890,
+                    appID: 1600023534,
                     sk: '7578e03a0a394a4cba7904fc1acef5f3991d5040dcd36a8b2225c92fea43a89e');
                 if (result) {
                   trtcPlugin.serviceVideoCalling();
