@@ -51,8 +51,7 @@ flutter:
   # To add assets to your plugin package, add an assets section, like this:
   assets:
      - assets/images/
-     - assets/audio/
-
+     - assets/audio/lingyin.mp3
   # For details regarding assets in packages, see
   # https://flutter.dev/assets-and-images/#from-packages
   #
